@@ -7,7 +7,8 @@
 
 Canvas Maker`s server require the following software to work:
 
-- Node.js ([install/upgrade](https://nodejs.org/en/download/))
+- [Node.js](https://nodejs.org/en/download/)
+- [MySQL](https://www.mysql.com/)
 
 
 ## Running Project  
@@ -22,3 +23,6 @@ Canvas Maker`s server require the following software to work:
 
 - [express.js](http://expressjs.com/)
 - [cors](https://www.npmjs.com/package/cors)
+
+
+## Database Structure
