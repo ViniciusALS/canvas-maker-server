@@ -1,4 +1,6 @@
-# Canvas Maker - Server
+# Canvas Maker 
+# Server
+-------------------------------
 
 
 ## Requirements
@@ -18,5 +20,5 @@ Canvas Maker`s server require the following software to work:
 
 ## Modules Used
 
-- express
-- cors
+- [express.js](http://expressjs.com/)
+- [cors](https://www.npmjs.com/package/cors)
