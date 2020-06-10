@@ -1,6 +1,6 @@
 # Canvas Maker 
 ## Server
--------------------------------
+--------------------------------------------------------------
 
 
 ## Requirements
@@ -8,7 +8,7 @@
 Canvas Maker`s server require the following software to work:
 
 - [Node.js](https://nodejs.org/en/download/)
-- [MySQL](https://www.mysql.com/)
+- [MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/#mysql-getting-started-installing)
 
 
 ## Running Project  
