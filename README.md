@@ -26,7 +26,9 @@ Canvas Maker`s server require the following software to work:
 - [mysql](https://www.npmjs.com/package/mysql)
 
 
-## Database Structure
+## Usage 
+
+### Database Structure
 
 You can check the project`s database structure by going to the [database wiki page]().
 
