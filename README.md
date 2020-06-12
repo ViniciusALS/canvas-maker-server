@@ -36,3 +36,5 @@ You can check the project`s database structure by going to the [database wiki pa
 ## License
 
 This project is licensed under [GNU GENERAL PUBLIC LICENSE Version 3](./LICENSE) license. 
+
+Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
