@@ -1,5 +1,5 @@
 # Canvas Maker 
-> Canvas Maker is a online tool to help entrepreneurs design their canval and start developing their company. 
+> Canvas Maker is an online tool to help entrepreneurs design their canval and start developing their company. 
 
 ## Server
 --------------------------------------------------------------
