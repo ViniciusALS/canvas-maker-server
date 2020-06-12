@@ -23,6 +23,9 @@ Canvas Maker`s server require the following software to work:
 
 - [express.js](http://expressjs.com/)
 - [cors](https://www.npmjs.com/package/cors)
+- [mysql](https://www.npmjs.com/package/mysql)
 
 
 ## Database Structure
+
+You can check the project`s database structure by going to the [database wiki page]().
