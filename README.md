@@ -29,3 +29,8 @@ Canvas Maker`s server require the following software to work:
 ## Database Structure
 
 You can check the project`s database structure by going to the [database wiki page]().
+
+
+## License
+
+This project is licensed under [GNU GENERAL PUBLIC LICENSE Version 3](./LICENSE) license. 
