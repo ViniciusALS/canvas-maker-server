@@ -83,13 +83,9 @@ export default class Authentication {
 				return res.status(403).send();
 			}
 
-			const varifiedToken = <Token>authData;
+			const verifiedToken = <Token>authData;
 
-			const userId = varifiedToken.userId;
-
-			const accessToken = jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET!, {
-				expiresIn: '15m'
-			});
+			const accessToken = this.generateAccessToken(verifiedToken.userId);
 
 			return res.status(200).json({ accessToken });
 		});
