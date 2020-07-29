@@ -21,8 +21,8 @@ export default class UserController {
 			const userId = await UserQueries.createLocalUser(userName, userNickname, userEmail, userHashedPassword);
 
 
-			const accessToken = authController.genAccessToken(userId);
-			const refreshToken = authController.genRefreshToken(userId);
+			const accessToken = authController.generateAccessToken(userId);
+			const refreshToken = authController.generateRefreshToken(userId);
 
 			return res.status(200).json({ accessToken, refreshToken });
 		}
@@ -48,8 +48,8 @@ export default class UserController {
 				return res.status(401).json({ 'errors': RequestError.incorrectPassword });
 
 
-			const accessToken = authController.genAccessToken(localUser.AccountsId);
-			const refreshToken = authController.genRefreshToken(localUser.AccountsId);
+			const accessToken = authController.generateAccessToken(localUser.AccountsId);
+			const refreshToken = authController.generateRefreshToken(localUser.AccountsId);
 
 			return res.status(200).json({ accessToken, refreshToken });
 		}
