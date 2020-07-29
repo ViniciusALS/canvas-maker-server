@@ -1,5 +1,5 @@
 import { Router, Response } from 'express';
-import userController from './controllers/UserController';
+import UserController from './controllers/UserController';
 import Validation from './models/Validation';
 import authController from './controllers/AuthContoller';
 
@@ -10,11 +10,11 @@ routes.get('/', (_, res:Response) => res.status(204).send());
 
 routes.post('/signup',
 	Validation.signup,
-	userController.signUp);
+	UserController.signUp);
 
 routes.post('/signin',
 	Validation.signin,
-	userController.signIn);
+	UserController.signIn);
 
 routes.post('/token', authController.refreshToken);
 
