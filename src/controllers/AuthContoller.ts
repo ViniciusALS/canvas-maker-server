@@ -24,6 +24,8 @@ export default class Authentication {
 	public static generateRefreshToken(userId:number):string {
 		const refreshToken = jwt.sign({ userId }, process.env.REFRESH_TOKEN_SECRET!);
 
+		TokenQueries.addRefreshToken(userId, refreshToken);
+
 		return refreshToken;
 	}
 
