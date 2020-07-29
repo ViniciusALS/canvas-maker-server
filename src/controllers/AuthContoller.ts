@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import { Request, Response, NextFunction } from 'express';
 import RequestError from '../models/RequestError';
+import TokenQueries from '../database/TokensQueries';
 import jwt from 'jsonwebtoken';
 
 dotenv.config({ path: 'secure/.env' });
