@@ -22,10 +22,10 @@ export default class Authentication {
 	}
 
 
-	public static generateRefreshToken(userId:number):string {
+	public static async generateRefreshToken(userId:number):Promise<string> {
 		const refreshToken = jwt.sign({ userId }, process.env.REFRESH_TOKEN_SECRET!);
 
-		TokenQueries.addRefreshToken(userId, refreshToken);
+		await TokenQueries.addRefreshToken(userId, refreshToken);
 
 		return refreshToken;
 	}
@@ -91,5 +91,49 @@ export default class Authentication {
 		});
 
 		return res.sendStatus(500);
+	}
+
+	public static logout(req: Request, res: Response): Response {
+		let AccountsId = 0;
+
+		try {
+			const headerAccessToken = req.headers.authorization;
+			const headerRefreshToken = req.headers.refreshToken;
+
+			if (typeof headerRefreshToken === 'undefined' || typeof headerAccessToken === 'undefined') {
+				const errors = RequestError.missingAuthHeader;
+				return res.status(403).json({ errors });
+			}
+
+			const accessToken = headerAccessToken.split(' ')[1];
+			const refreshToken = headerRefreshToken.split(' ')[1];
+
+			jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET!, (error, authData) => {
+				if (error)
+					throw error;
+
+				const token = <Token>authData!;
+
+				AccountsId = token.userId;
+			});
+
+			jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET!, async (error, authData) => {
+				if (error)
+					throw error;
+
+				const token = <Token>authData!;
+
+				if (token.userId !== AccountsId)
+					throw new Error('Refresh token userId and access token userId don`t match.');
+
+				await TokenQueries.removeRefreshToken(AccountsId, refreshToken);
+			});
+		}
+		catch (error) {
+			console.log(error);
+			return res.sendStatus(500);
+		}
+
+		return res.sendStatus(200);
 	}
 }
