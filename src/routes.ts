@@ -16,6 +16,8 @@ routes.post('/signin',
 	Validation.signin,
 	UserController.signIn);
 
+routes.post('/refreshToken', authController.refreshToken);
+
 routes.post('/logout');
 
 export default routes;
