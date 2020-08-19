@@ -24,7 +24,7 @@ export default class UserController {
 
 
 			const accessToken = authController.generateAccessToken(userId);
-			const refreshToken = authController.generateRefreshToken(userId);
+			const refreshToken = await authController.generateRefreshToken(userId);
 
 			return res.status(200).json({ accessToken, refreshToken });
 		}
@@ -51,7 +51,7 @@ export default class UserController {
 
 
 			const accessToken = authController.generateAccessToken(localUser.AccountsId);
-			const refreshToken = authController.generateRefreshToken(localUser.AccountsId);
+			const refreshToken = await authController.generateRefreshToken(localUser.AccountsId);
 
 			return res.status(200).json({ accessToken, refreshToken });
 		}
