@@ -16,7 +16,9 @@ export default class UserController {
 			const userName: string = req.body.name;
 			const userNickname: string = req.body.nickname;
 			const userEmail: string = req.body.email;
-			const userHashedPassword: string = await bcrypt.hash(req.body.password, Number(process.env.BCRYPT_SALT_ROUNDS!));
+			const userHashedPassword: string = await bcrypt.hash(
+				req.body.password,
+				Number(process.env.BCRYPT_SALT_ROUNDS!));
 
 			const userId = await UserQueries.createLocalUser(userName, userNickname, userEmail, userHashedPassword);
 
