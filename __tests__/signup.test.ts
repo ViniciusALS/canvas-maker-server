@@ -60,7 +60,7 @@ describe('Checks POST request on api/signup route:', () => {
 				.post('/api/signup')
 				.send(requestBody)
 				.expect('Content-Type', /json/u)
-				.expect(/\{"token":\s*"(.)+\.(.)+\.(.)+"\}/u)
+				.expect(/\{"accessToken":\s*"(.)+\.(.)+\.(.)+",\s*"refreshToken":\s*"(.)+\.(.)+\.(.)+"\}/u)
 				.expect(200, done);
 		});
 
