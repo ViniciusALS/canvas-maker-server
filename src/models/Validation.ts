@@ -33,6 +33,15 @@ export default class Validation {
 	}
 
 
+	private static localSigninValidation = [
+		body('email').exists().withMessage('Email field missing.')
+			.if(body('email').exists())
+			.trim().isEmail().normalizeEmail().withMessage('Email format is incorrect.'),
+
+		body('password').exists().withMessage('Password field missing.')
+			.if(body('password').exists())
+			.isLength({ min: 7 }).withMessage('Password should be at least 7 characters long.')
+	];
 	public static async signup(req: Request, res: Response, next: NextFunction):Promise<void> {
 
 		const method = Validation.getRequestMethod(req, res);
@@ -100,15 +109,7 @@ export default class Validation {
 		let validations: ValidationChain[];
 
 		if (method === 'local') {
-			validations = [
-				body('email').exists().withMessage('Email field missing.')
-					.if(body('email').exists())
-					.trim().isEmail().normalizeEmail().withMessage('Email format is incorrect.'),
-
-				body('password').exists().withMessage('Password field missing.')
-					.if(body('password').exists())
-					.isLength({ min: 7 }).withMessage('Password should be at least 7 characters long.')
-			];
+			validations = Validation.localSigninValidation;
 		}
 		else {
 			const errors = RequestError.invalidMethod;
