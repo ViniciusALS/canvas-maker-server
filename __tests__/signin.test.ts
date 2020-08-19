@@ -54,7 +54,7 @@ describe('Checks POST request on api/signin route:', () => {
 			request(app)
 				.post('/api/signin')
 				.send(signinRequestBody)
-				.expect(/\{"token":\s*"(.)+\.(.)+\.(.)+"\}/u)
+				.expect(/\{"accessToken":\s*"(.)+\.(.)+\.(.)+",\s*"refreshToken":\s*"(.)+\.(.)+\.(.)+"\}/u)
 				.expect(200, done);
 		});
 
