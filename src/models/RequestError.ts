@@ -32,7 +32,7 @@ export default class RequestError {
 	}
 
 	static get missingAuthHeader(): string[] {
-		return ['Authorization field in missing on the header.'];
+		return ['Authorization field is missing on the header.'];
 	}
 
 	static get tokenExpired(): string[] {
