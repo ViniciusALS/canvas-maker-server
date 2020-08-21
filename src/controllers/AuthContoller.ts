@@ -85,7 +85,7 @@ export default class AuthController {
 
 			const verifiedToken = <Token>authData;
 
-			const accessToken = this.generateAccessToken(verifiedToken.userId);
+			const accessToken = AuthController.generateAccessToken(verifiedToken.userId);
 
 			return res.status(200).json({ accessToken });
 		});
