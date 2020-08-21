@@ -68,14 +68,14 @@ export default class AuthController {
 
 	public static refreshToken(req: Request, res: Response): Response {
 
-		const headerRefreshToken = req.headers.refreshToken;
 
-		if (typeof headerRefreshToken === 'undefined') {
+		const refreshToken = req.header('refreshToken');
+
+		if (typeof refreshToken === 'undefined') {
 			const errors = RequestError.missingAuthHeader;
 			return res.status(403).json({ errors });
 		}
 
-		const refreshToken = headerRefreshToken.split(' ')[1];
 
 		jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET!, (error, authData) => {
 			if (error) {
