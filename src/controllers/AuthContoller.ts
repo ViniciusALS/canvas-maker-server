@@ -97,16 +97,14 @@ export default class AuthController {
 		let AccountsId = 0;
 
 		try {
-			const headerAccessToken = req.headers.authorization;
-			const headerRefreshToken = req.headers.refreshToken;
+			const accessToken = req.header('authorization');
+			const refreshToken = req.header('refreshToken');
 
-			if (typeof headerRefreshToken === 'undefined' || typeof headerAccessToken === 'undefined') {
+			if (typeof refreshToken === 'undefined' || typeof accessToken === 'undefined') {
 				const errors = RequestError.missingAuthHeader;
 				return res.status(403).json({ errors });
 			}
 
-			const accessToken = headerAccessToken.split(' ')[1];
-			const refreshToken = headerRefreshToken.split(' ')[1];
 
 			jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET!, (error, authData) => {
 				if (error)
