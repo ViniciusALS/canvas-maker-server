@@ -13,7 +13,7 @@ interface Token {
 	iss: string
 }
 
-export default class Authentication {
+export default class AuthController {
 
 	public static generateAccessToken(userId:number):string {
 		return jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET!, {
