@@ -18,6 +18,7 @@ routes.post('/signin',
 
 routes.get('/refreshToken', authController.refreshToken);
 
-routes.post('/logout');
+routes.post('/logout', authController.logout, (_, res) => res.status(201).sendStatus(201));
+
 
 export default routes;
