@@ -1,7 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 
-import routes from './routes/userAccessRoute';
+import routes from './routes';
 
 const app = express();
 
