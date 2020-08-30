@@ -60,9 +60,4 @@ export default class UserController {
 			return res.sendStatus(500);
 		}
 	}
-
-	// public static secret(req: Request, res: Response): Response {
-
-	//	return res.status(200).json({ msg: 'I got here.' });
-	// }
 }
