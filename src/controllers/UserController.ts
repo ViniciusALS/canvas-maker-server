@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import UserQueries from '../database/UserQueries';
 import bcrypt from 'bcrypt';
 import RequestError from '../models/RequestError';
-import authController from './AuthContoller';
+import authController from './AuthController';
 
 dotenv.config({ path: 'secure/.env' });
 
