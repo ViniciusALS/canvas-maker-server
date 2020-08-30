@@ -1,7 +1,7 @@
 import { Router, Response } from 'express';
-import UserController from './controllers/UserController';
-import Validation from './models/Validation';
-import authController from './controllers/AuthContoller';
+import UserController from '../controllers/UserController';
+import Validation from '../models/Validation';
+import authController from '../controllers/AuthController';
 
 
 const routes = Router();
@@ -18,7 +18,12 @@ routes.post('/signin',
 
 routes.get('/refreshToken', authController.refreshToken);
 
-routes.post('/logout', authController.logout, (_, res) => res.status(201).sendStatus(201));
+routes.post('/logout', authController.logout);
 
+routes.get('/secret',
+	authController.getAccessToken,
+	(req, res) => {
+		res.status(200).json({ 'id': req.id });
+	});
 
 export default routes;
