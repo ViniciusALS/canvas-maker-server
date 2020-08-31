@@ -1,5 +1,6 @@
 import { Router, Response } from 'express';
 import UserController from './controllers/UserController';
+import AccountController from './controllers/AccountController';
 import Validation from './models/Validation';
 import authController from './controllers/AuthController';
 
@@ -21,7 +22,7 @@ routes.get('/refreshToken', authController.refreshToken);
 routes.post('/logout', authController.logout);
 
 
-routes.post('/updatePhoto');
+routes.post('/updateProfilePicture', AccountController.updateProfilePicture);
 
 
 export default routes;
