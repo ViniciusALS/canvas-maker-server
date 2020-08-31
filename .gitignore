@@ -7,3 +7,7 @@ secure/*
 
 # Jest test`s code coverage.
 coverage/
+
+# User images saved on local server
+public/profiles/*
+!public/profiles/.gitkeep
