@@ -38,4 +38,12 @@ export default class RequestError {
 	static get tokenExpired(): string[] {
 		return ['Your access token expired.'];
 	}
+
+	static get failedImageUpload(): string[] {
+		return ['For some reason the uploading of your image failed.'];
+	}
+
+	static get wrongImageFormat(): string[] {
+		return ['Only image files are allowed.'];
+	}
 }
